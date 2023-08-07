@@ -1,13 +1,15 @@
 {
 	"name": "my-site",
 	"version": "0.0.1",
+	"homepage": "https://github.com/AlessandroGia/AlessandroGia.github.io.git",
 	"private": true,
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+		"deploy": "gh-pages -d build -t true"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^2.1.0",
@@ -21,6 +23,7 @@
 	"type": "module",
 	"dependencies": {
 		"@sveltejs/adapter-static": "^2.0.3",
-		"aos": "^3.0.0-beta.6"
+		"aos": "^3.0.0-beta.6",
+		"gh-pages": "^5.0.0"
 	}
 }

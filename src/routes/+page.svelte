@@ -2,6 +2,7 @@
     import { fly, fade } from "svelte/transition";
     import { onMount } from "svelte";
 
+
     const birthday = '2001-09-24'
 
     let splash = true;
@@ -252,32 +253,26 @@
             </div>
         {/if}
 
-        {#if y >  ((max_y / 3) + div_tech_height)}
-            <div id="bottom" style="height: {max_y * 0.2}px; width: 100%; background-color: transparent">
-                <div in:fly={{duration: 2000, y: -200}} id="bottom">
-                    <div class="contact-logo" in:fly={{x: -200, duration: 1000, delay: 500}} out:fade><a href="https://github.com/AlessandroGia" target="_blank"><img src="svg/logo-github.svg" style="height: 6vw;" alt="GitHub"></a></div>
-                    <div class="contact-logo" in:fly={{x: 200, duration: 1000, delay: 500}} out:fade><a href="mailto:alessandrogiacento@alegiacento.dev"><img src="svg/mail.svg" style="height: 6vw;" alt="E-Mail"></a></div>
-                    <div id="credits">
-                        <div id="credit" in:fade={{duration: 500, delay: 600}} out:fade>
-                            Icons taken from <a id="link-ionic" href="https://ionicframework.com" target="_blank">Ionic</a>
-                        </div>
+        <div id="bottom" style="height: {max_y * 0.2}px; width: 100%; background-color: transparent">
+            <div in:fly={{duration: 2000, y: -200}} id="bottom">
+                <div class="contact-logo" in:fly={{x: -200, duration: 1000, delay: 500}} out:fade><a href="https://github.com/AlessandroGia" target="_blank"><img src="svg/logo-github.svg" style="height: 6vw;" alt="GitHub"></a></div>
+                <div class="contact-logo" in:fly={{x: 200, duration: 1000, delay: 500}} out:fade><a href="mailto:alessandrogiacento@alegiacento.dev"><img src="svg/mail.svg" style="height: 6vw;" alt="E-Mail"></a></div>
+                <div id="credits">
+                    <div id="credit" in:fade={{duration: 500, delay: 600}} out:fade>
+                        Icons taken from <a id="link-ionic" href="https://ionicframework.com" target="_blank">Ionic</a>
                     </div>
-                    <div id="end-footer">
-                        <div id="copyright" in:fly={{y: -200, duration: 500, delay:800}}  out:fade>
-                            @ {new Date().getFullYear()} Alessandro Giacento
-                        </div>
-                        <div id="powered" in:fly={{y: -200, duration: 500, delay:800}} out:fade>
-                            Powered by Svelte
-                        </div>
+                </div>
+                <div id="end-footer">
+                    <div id="copyright" in:fly={{y: -200, duration: 500, delay:800}}  out:fade>
+                        @ {new Date().getFullYear()} Alessandro Giacento
+                    </div>
+                    <div id="powered" in:fly={{y: -200, duration: 500, delay:800}} out:fade>
+                        Powered by Svelte
                     </div>
                 </div>
             </div>
-        {:else}
-            <div style="height: {max_y * 0.5}px; background-color: transparent">
-                
-            </div>
-        {/if}
-        
+        </div>
+
     </div>
 {/if}
 
