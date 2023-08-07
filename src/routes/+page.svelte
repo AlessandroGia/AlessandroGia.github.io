@@ -156,7 +156,7 @@
         
         {#if y > max_y / 3}
             <div id="div-tech" in:fly={{y: -200, duration: 1000}} out:fade>Technology</div>
-            <div bind:this={div_tech} id="middle" style="height: {max_y * 2}px" in:fade={{duration: 1000}} out:fade>
+            <div bind:this={div_tech} id="middle" style="height: {max_y * 1.5}px" in:fade={{duration: 1000}} out:fade>
                 <div bind:this={divs_an[0]} class="item-left" style="transform: translateX({transf[0]}px); opacity:{opacities[0]};">
                     <div id="animated-div-tech">
                         {#if item_animations[0]}
@@ -304,7 +304,7 @@
     #credit {
         text-align: center;
         width: 30vw;
-        font-size: 3vw;
+        font-size: 2vw;
         padding-top: 2px;
         color: rgba(0, 0, 0, 0.5);
         border-top: 1px solid rgba(0, 0, 0, 0.1);
@@ -495,7 +495,7 @@
         color: gray;
         text-align: center;
         bottom: 0;
-        font-size: 2.5vw;
+        font-size: 1.8vw;
         transition: opacity 1s, color 1s;
         flex: 0 0 calc(50%);
         align-self: flex-end;
@@ -513,7 +513,7 @@
         color: gray;
         text-align: center;
         bottom: 0;
-        font-size: 2.5vw;
+        font-size: 1.8vw;
         transition: opacity 1s, color 1s;
         flex: 0 0 calc(50%);
         align-self: flex-end;
