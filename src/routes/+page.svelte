@@ -1,8 +1,6 @@
-<script>
-    import { fly, fade } from "svelte/transition";
-    import { onMount } from "svelte";
-
-
+<script lang="ts">
+    import Spash from "./spash.svelte";
+    /*
     const birthday = '2001-09-24'
 
     let splash = true;
@@ -109,16 +107,23 @@
     })
     
 
+    */
 
+    let splash: boolean = true;
 
-
-    
 </script>
 
+{#if splash}
 
+    <Spash bind:open={splash}/>
 
+{:else}
+{/if}
+
+<!--
 
 {#if splash}
+
     <div id="splash" out:fade>
         <div class="stain" style="width: {stain_x}vw; height: {stain_y}vh; border-radius: {stain_r}%"></div>
         {#if welcome}
@@ -134,8 +139,8 @@
             </span>
         {/if}
     </div>
-{:else}
 
+{:else}
     <div id="div_container" style="background-color: {global_background_color};" in:fly={{y: 200, duration: 2000}}>
         <div id="top"  style="height: {max_y}px" >
             {#if y < max_y / 3}
@@ -279,8 +284,10 @@
 
 <svelte:window bind:scrollY={y} />
 
-<style>
+-->
 
+<style>
+    /*
 
     #link-ionic {
         color: rgba(0, 0, 0, 0.5);
@@ -366,7 +373,7 @@
         padding: 10px;
         box-sizing: border-box; 
         background-color: transparent;
-        box-shadow: 0 0 100px rgba(240,240,240, 0.1); /* Aggiungi un'ombra sfocata */
+        box-shadow: 0 0 100px rgba(240,240,240, 0.1); 
         border-radius: 10%;
         color: rgba(0, 0, 0, 0.675);
 
@@ -526,6 +533,6 @@
     }
 
 
-   
+   */
 
 </style>
