@@ -4,6 +4,7 @@
     import Intro from "./intro.svelte";
     import { onMount } from "svelte";
     import { fade } from "svelte/transition";
+    import Presentation from "./presentation.svelte";
     /*
     const birthday = '2001-09-24'
 
@@ -114,21 +115,15 @@
     */
 
 
-    let glb_back_color: string;
-    let glb_height: number;
-
-
     let scroll_y: number;
+    $: {
+        console.log(scroll_y, window_height / 2)
+    }
 
     let window_width: number;
     let window_height: number;
 
     let splash: boolean = true;
-
-    let intro_height: number = 2;
-    $: {
-        glb_height = intro_height + window_height
-    }
 
 </script>
 
@@ -138,18 +133,16 @@
 
 {:else}
 
-    <div id="container" style="height: {glb_height}px; background-color: {scroll_y < (window_height / 2) ? 'transparent' : `rgba(${(255 - (((new Date().getHours()) * (255/24))))},0,0,0.1)`}" in:fade={{duration:2000, delay:1000}}>
+    <div id="container" style="height:{window_height * 3}px; background-color: {scroll_y < (window_height / 2) ? 'transparent' : `rgba(255, 240, 225, 1)`}" in:fade={{duration:2000, delay:1000}}>
         
-        {#if scroll_y < (window_height / 2)}
-
-            <Intro {scroll_y} bind:tot_height={intro_height} {window_width} {window_height}/>
+        <Intro {scroll_y} {window_width} {window_height} />
         
-        {:else if scroll_y >= (window_height / 2) && scroll_y <= (window_height * 1.5)}
-  
-            <div></div>
+        {#if scroll_y >= (window_height / 2) && scroll_y <= (window_height * 2.5)}
         
-        
-            {/if}
+            <div in:fade out:fade style="height: {window_height}px; background-color: transparent"></div>
+            <Presentation {scroll_y} {window_width} {window_height}/>
+            <div in:fade out:fade style="height: {window_height}px; background-color: transparent"></div>
+        {/if}
     </div>
 
 {/if}
