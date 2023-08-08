@@ -1,5 +1,9 @@
 <script lang="ts">
-    import Spash from "./spash.svelte";
+
+    import Splash from "./splash.svelte";
+    import Intro from "./intro.svelte";
+    import { onMount } from "svelte";
+    import { fade } from "svelte/transition";
     /*
     const birthday = '2001-09-24'
 
@@ -109,16 +113,49 @@
 
     */
 
+
+    let glb_back_color: string;
+    let glb_height: number;
+
+
+    let scroll_y: number;
+
+    let window_width: number;
+    let window_height: number;
+
     let splash: boolean = true;
+
+    let intro_height: number = 2;
+    $: {
+        glb_height = intro_height + window_height
+    }
 
 </script>
 
 {#if splash}
 
-    <Spash bind:open={splash}/>
+    <Splash bind:open={splash}/>
 
 {:else}
+
+    <div id="container" style="height: {glb_height}px; background-color: {scroll_y < (window_height / 2) ? 'transparent' : `rgba(${(255 - (((new Date().getHours()) * (255/24))))},0,0,0.1)`}" in:fade={{duration:2000, delay:1000}}>
+        
+        {#if scroll_y < (window_height / 2)}
+
+            <Intro {scroll_y} bind:tot_height={intro_height} {window_width} {window_height}/>
+        
+        {:else if scroll_y >= (window_height / 2) && scroll_y <= (window_height * 1.5)}
+  
+            <div></div>
+        
+        
+            {/if}
+    </div>
+
 {/if}
+
+<svelte:window bind:scrollY={scroll_y} bind:innerHeight={window_height} bind:innerWidth={window_width}/>
+
 
 <!--
 
@@ -287,6 +324,13 @@
 -->
 
 <style>
+
+    #container {
+        display: flex;
+        background-color: transparent;
+        flex-direction: column;
+        transition: background-color 1s;
+    }
     /*
 
     #link-ionic {

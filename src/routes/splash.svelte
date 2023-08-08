@@ -79,8 +79,8 @@
 <style>
 
     #splash {
-        width: 100vw;
-        height: 100vh;
+        width: calc(100vw - 20px);
+        height: calc(100vh - 20px);
         display: flex;
         justify-content: center;
         align-items: center;
