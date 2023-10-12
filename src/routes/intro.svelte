@@ -16,8 +16,8 @@
     
     {#if scroll_y < window_height/2}
         <div id="segment_1" in:fade={{delay:500}} out:fade></div>
-        <div id="segment_2" in:fly={{y: 200, duration: 1000}} out:fly={{y: -200, duration: 1000}} style="width: {window_width}px; height: {window_height}px; left: {window_width * 0.2}px; top: -{window_height/2}px; transform: rotate({40 + scroll_y/5}deg);"></div>
-        <div id="segment_3" in:fly={{y: -200, duration: 1000}} out:fly={{y: 200, duration: 1000}} style="width: {window_width}px; height: {window_height}px; right: {window_width * 0.2}px; bottom: -{window_height/2}px; transform: rotate({60 + scroll_y/5}deg);"></div>
+        <div id="segment_2" in:fly={{y: 200, duration: 1000}} out:fly={{y: -200, duration: 1000}} style="background-color: ; width: {window_width}px; height: {window_height}px; left: {window_width * 0.2}px; top: -{window_height/2}px; transform: rotate({40 + scroll_y/5}deg);"></div>
+        <div id="segment_3" in:fly={{y: -200, duration: 1000}} out:fly={{y: 200, duration: 1000}} style="background-color: ; width: {window_width}px; height: {window_height}px; right: {window_width * 0.2}px; bottom: -{window_height/2}px; transform: rotate({60 + scroll_y/5}deg);"></div>
 
         <div id="about_me" in:fly={{x: 500, duration: 1000, delay:500}} out:fade={{delay:500}}>
             <span in:fade={{duration: 1000, delay: 1000}}>

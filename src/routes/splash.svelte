@@ -13,7 +13,10 @@
 
     const num_circles: number = 3;
     let circles: Array<circle> = [];
-    let red: number = 255 - (((new Date().getHours()) * (255/24)))
+    let red: number = 200//(((new Date().getHours()) * (255/24)))
+    let green: number = 0
+    let blue: number = 0
+
     let size = spring(0);
 
     let scroll_y: number;
@@ -53,7 +56,7 @@
 <div id="splash" out:fade={{duration:1000}}>
     {#each circles as circle}
         <svg style="opacity: 0.5; position: absolute">
-            <g color="rgba({red},0,0,0.2)">
+            <g color="rgba({red}, {green}, {blue}, 0.2)">
                 <circle cx={circle.cx} cy={circle.cy} r={$size} fill="currentcolor"/>
             </g>
         </svg>
